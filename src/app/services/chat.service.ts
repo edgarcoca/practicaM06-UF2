@@ -27,6 +27,16 @@ export class ChatService {
 		return this.http.get(this.url+'getAllUsers',{headers: headers})
 		.map(res => res.json());
 	}
+	getChat(sender, receiver){
+		let headers = new Headers({'Content-Type':'application/json'});
+		return this.http.get(this.url+'getChat/'+sender+'/'+receiver,{headers: headers})
+		.map(res => res.json());
+	}
+	getAllResumeChats(user){
+		let headers = new Headers({'Content-Type':'application/json'});
+		return this.http.get(this.url+'getAllResumeChats/'+user,{headers: headers})
+		.map(res => res.json());
+	}
 
 
 

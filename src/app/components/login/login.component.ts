@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
   						}
   					}
   					localStorage.setItem("usuari", JSON.stringify(usuari));
-  					router.navigate(['/chat'])
+  					router.navigate(['/chat']);
   				}else{
   					$("#nom").removeClass("correcto");
   					$("#nom").addClass("incorrecto");

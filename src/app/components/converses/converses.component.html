@@ -1,3 +1,19 @@
 <p>
   converses works!
 </p>
+<div class="conversas">
+	<ul class="" style="clear:both; list-style: none;">
+		<h2>Ultimes Converses</h2>
+		<li *ngFor="let conversa of converses">
+			<div *ngIf="conversa.envio == true" class="envio">
+				<h3>{{conversa.destinatari.nom}}</h3>
+				<p>Yo: {{conversa.missatge}}</p>
+			</div>
+			<div *ngIf="conversa.envio == false" class="recibo">
+				<h3>{{conversa.remitent.nom}}</h3>
+				<p>{{conversa.remitent.nom}}: {{conversa.missatge}}</p>
+			</div>
+			
+		</li>
+	</ul>
+</div>
