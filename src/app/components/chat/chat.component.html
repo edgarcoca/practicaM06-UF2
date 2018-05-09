@@ -1,5 +1,5 @@
 <p>
   chat works!
 </p>
-<app-converses></app-converses>
-<app-conversa></app-conversa>
+<app-converses (sendProperty)="showConversa($event)"></app-converses>
+<app-conversa [chat]="chat" *ngIf="chat"></app-conversa>

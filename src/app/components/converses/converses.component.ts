@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { ChatService } from './../../services/chat.service';
 import { Missatge } from '../../models/missatges.model';
 import { Usuari } from '../../models/usuaris.model';
@@ -16,6 +16,7 @@ export class ConversesComponent implements OnInit {
   receiver: Usuari;
   conversa: Missatge;
   converses: Array<Missatge>;
+  @Output() sendProperty = new EventEmitter();
   constructor(private chatService: ChatService) { 
   }
 
@@ -75,6 +76,11 @@ export class ConversesComponent implements OnInit {
   			console.log(<any>error);
   		}
 	);  	  	
+  }
+
+  send(event){
+    //console.log(event);
+    this.sendProperty.emit({conversa: event});
   }
 
 }

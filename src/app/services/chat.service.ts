@@ -37,6 +37,12 @@ export class ChatService {
 		return this.http.get(this.url+'getAllResumeChats/'+user,{headers: headers})
 		.map(res => res.json());
 	}
+	sendMessage(sender,receiver,message){
+		let params = {sender: sender, receiver: receiver, message: message};
+		let headers = new Headers({'Content-Type':'application/json'});
+		return this.http.post(this.url+'sendMessage',params,{headers: headers})
+		.map(res => res.json());
+	}
 
 
 

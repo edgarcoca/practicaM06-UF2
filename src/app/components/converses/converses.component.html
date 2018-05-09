@@ -4,7 +4,7 @@
 <div class="conversas">
 	<ul class="" style="clear:both; list-style: none;">
 		<h2>Ultimes Converses</h2>
-		<li *ngFor="let conversa of converses">
+		<li *ngFor="let conversa of converses; let i = $index" [attr.name]="i" (click)="send(conversa)">
 			<div *ngIf="conversa.envio == true" class="envio">
 				<h3>{{conversa.destinatari.nom}}</h3>
 				<p>Yo: {{conversa.missatge}}</p>
@@ -12,8 +12,7 @@
 			<div *ngIf="conversa.envio == false" class="recibo">
 				<h3>{{conversa.remitent.nom}}</h3>
 				<p>{{conversa.remitent.nom}}: {{conversa.missatge}}</p>
-			</div>
-			
+			</div>			
 		</li>
 	</ul>
 </div>

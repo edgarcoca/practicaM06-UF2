@@ -1,3 +1,17 @@
 <p>
   conversa works!
 </p>
+<div class="chat">
+	<ul class="" style="clear:both; list-style: none;">
+		<h2>Conversa</h2>
+		<li *ngFor="let missatge of missatges; let i = $index" [attr.name]="i">
+			<div *ngIf="missatge.sender == yo.id" class="envio">
+				<p>Yo: {{missatge.message}}</p>
+			</div>
+			<div *ngIf="missatge.sender != yo.id" class="recibo">
+				<p>{{missatge.message}}</p>
+			</div>			
+		</li>
+	</ul>
+	<input id="missatge" type="text" placeholder="Missatge...">
+</div>
